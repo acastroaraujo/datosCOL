@@ -4,7 +4,7 @@
 \alias{get_dataset}
 \title{Get Dataset}
 \usage{
-get_dataset(id, sql_query = "SELECT *")
+get_dataset(id, query = "SELECT *")
 }
 \arguments{
 \item{id}{a string}
@@ -26,7 +26,7 @@ divipola <- get_dataset("gdxc-w37w")
 
 d <- get_dataset(
   id = "g3ma-7zce",
-  sql_query = "SELECT * WHERE anio = '2024'"
+  query = "SELECT * WHERE anio = '2024'"
 )
 
 }

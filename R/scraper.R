@@ -17,13 +17,13 @@
 #'
 #' d <- get_dataset(
 #'   id = "g3ma-7zce",
-#'   sql_query = "SELECT * WHERE anio = '2024'"
+#'   query = "SELECT * WHERE anio = '2024'"
 #' )
 #'
 #'}
 #'
 #' @export
-get_dataset <- function(id, sql_query = "SELECT *") {
+get_dataset <- function(id, query = "SELECT *") {
   stopifnot(is.character(id) & length(id) == 1)
   stopifnot(is.character(query) & length(query) == 1)
   stopifnot(is.logical(verbose) & length(verbose) == 1)
