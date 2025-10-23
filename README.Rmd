@@ -1,0 +1,48 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# datosCOL
+
+<!-- badges: start -->
+
+<!-- badges: end -->
+
+El propósito de **datosCOL** es facilitar el acceso al [portal de datos abiertos](https://www.datos.gov.co/) de Colombia.
+
+Para que funcione debe haber una variable llamada `DATOS_ABIERTOS_COL` con token de aplicación, que se puede crear gratuitamente aquí:
+
+<https://www.datos.gov.co/profile/edit/developer_settings>
+
+## Instalación
+
+``` r
+# install.packages("pak")
+pak::pak("acastroaraujo/datosCOL")
+```
+
+## Ejemplo
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example, results="hide"}
+library(datosCOL)
+divipola <- get_dataset(id = "gdxc-w37w")
+```
+
+Ajá.
+
+```{r}
+str(divipola)
+```
