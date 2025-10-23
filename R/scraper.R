@@ -26,7 +26,6 @@
 get_dataset <- function(id, query = "SELECT *") {
   stopifnot(is.character(id) & length(id) == 1)
   stopifnot(is.character(query) & length(query) == 1)
-  stopifnot(is.logical(verbose) & length(verbose) == 1)
 
   app_token <- Sys.getenv("DATOS_ABIERTOS_COL")
 
@@ -36,7 +35,7 @@ get_dataset <- function(id, query = "SELECT *") {
       "X-App-Token" = app_token,
       Accept = "application/json"
     ) |>
-    httr2::req_url_query(query = sql_query) |>
+    httr2::req_url_query(query = query) |>
     httr2::req_retry(max_tries = 5)
 
   resp <- httr2::req_perform(req, verbosity = 3)
