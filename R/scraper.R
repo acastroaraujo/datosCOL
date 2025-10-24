@@ -38,10 +38,12 @@ get_dataset <- function(id, query = "SELECT *") {
     httr2::req_url_query(query = query) |>
     httr2::req_retry(max_tries = 5)
 
-  resp <- httr2::req_perform(req, verbosity = 3)
+  resp <- httr2::req_perform(req, verbosity = 1)
   stopifnot(httr2::resp_status(resp) == 200)
 
-  httr2::resp_body_json(resp, simplifyVector = TRUE)
+  out <- httr2::resp_body_json(resp, simplifyVector = TRUE)
+  ok <- !grepl(pattern = "^:", colnames(out))
+  return(out[ok])
 }
 
 
